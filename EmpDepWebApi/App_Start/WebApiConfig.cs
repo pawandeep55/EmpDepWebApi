@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace EmpDepWebApi
 {
@@ -19,6 +20,9 @@ namespace EmpDepWebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            EnableCorsAttribute obj = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(obj);
+            
         }
     }
 }
